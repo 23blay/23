@@ -35,6 +35,7 @@
     --glow: rgba(255, 51, 51, 0.5);
     --smooth: cubic-bezier(0.4, 0, 0.2, 1);
     --smooth-snap: cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 html {
@@ -49,6 +50,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .pointer-glow {
@@ -60,6 +62,12 @@ body {
     transition: opacity 0.6s ease;
     opacity: 0.6;
     mix-blend-mode: screen;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 .scroll-progress {
@@ -330,7 +338,7 @@ nav.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 140px 40px 80px;
+    padding: clamp(120px, 14vw, 150px) 24px 80px;
     text-align: center;
     position: relative;
 }
@@ -343,7 +351,7 @@ nav.scrolled {
     width: 800px;
     height: 800px;
     background: radial-gradient(circle, rgba(255, 51, 51, 0.15) 0%, transparent 70%);
-    filter: blur(120px);
+    filter: blur(110px);
     animation: heroGlow 8s ease-in-out infinite;
     pointer-events: none;
 }
@@ -738,7 +746,7 @@ nav.scrolled {
 
 /* ===== ENHANCED APP PREVIEW ===== */
 .app-preview {
-    padding: 140px 40px;
+    padding: clamp(100px, 12vw, 140px) 24px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -851,11 +859,14 @@ nav.scrolled {
     height: auto;
     display: block;
     border-radius: 28px;
-    transition: all 0.6s ease;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    will-change: transform;
+    image-rendering: auto;
 }
 
 .preview-image-wrapper:hover .preview-image {
     filter: brightness(1.08) contrast(1.05) saturate(1.1);
+    transform: scale(1.01);
 }
 
 .preview-badges {
@@ -1409,6 +1420,80 @@ footer p {
     fill: white;
 }
 
+/* ===== RESPONSIVE REFINEMENTS ===== */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 24px;
+    }
+
+    .hero-orb {
+        display: none;
+    }
+
+    .preview-badges,
+    .preview-stats {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: min(100%, 320px);
+        justify-content: center;
+    }
+
+    .trust-items {
+        gap: 16px;
+    }
+
+    .preview-badges,
+    .preview-stats {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px auto 0;
+    }
+
+    .preview-image-wrapper {
+        box-shadow: var(--shadow-soft);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-badge,
+    .hero-glow,
+    .hero-orb,
+    .gradient-overlay,
+    .preview-glow,
+    .star,
+    .shooting-star,
+    .preview-badge {
+        animation: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .btn,
+    .preview-image,
+    .stat-card,
+    .feature-card {
+        transition: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
@@ -1612,7 +1697,7 @@ footer p {
                 </div>
             </div>
             
-            <img src="https://www.dropbox.com/scl/fi/8id8wmqq9vofi49ejiaps/image.png?rlkey=ki4v4cgir8x1n82x5a3mwtu38&st=n0zd1a5f&dl=1" alt="23 Optimizer Interface" class="preview-image">
+            <img src="image.png" alt="23 Optimizer Interface" class="preview-image" loading="lazy" decoding="async">
             
             <div class="preview-stats">
                 <div class="preview-stat">
@@ -1860,31 +1945,38 @@ footer p {
     const shootingStarsContainer = document.getElementById('shootingStars');
     const pointerGlow = document.getElementById('pointerGlow');
     const scrollProgress = document.getElementById('scrollProgress');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const prefersReducedMotion = reduceMotionQuery.matches;
+    const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+    const starCount = prefersReducedMotion ? 0 : (isSmallScreen ? 140 : 220);
     
     // Create regular stars
-    for (let i = 0; i < 250; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-        star.style.setProperty('--delay', Math.random() * 3 + 's');
-        starsContainer.appendChild(star);
+    if (starsContainer && starCount > 0) {
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            star.style.setProperty('--delay', Math.random() * 3 + 's');
+            starsContainer.appendChild(star);
+        }
     }
 
     // Create shooting stars
-    for (let i = 0; i < 5; i++) {
-        const shootingStar = document.createElement('div');
-        shootingStar.className = 'shooting-star';
-        shootingStar.style.left = Math.random() * 100 + '%';
-        shootingStar.style.top = Math.random() * 50 + '%';
-        shootingStar.style.setProperty('--shoot-delay', Math.random() * 10 + 's');
-        shootingStarsContainer.appendChild(shootingStar);
+    if (shootingStarsContainer && !prefersReducedMotion && !isSmallScreen) {
+        for (let i = 0; i < 3; i++) {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.left = Math.random() * 100 + '%';
+            shootingStar.style.top = Math.random() * 50 + '%';
+            shootingStar.style.setProperty('--shoot-delay', Math.random() * 12 + 's');
+            shootingStarsContainer.appendChild(shootingStar);
+        }
     }
 
     if (pointerGlow) {
-        if (prefersReducedMotion) {
+        if (prefersReducedMotion || isSmallScreen) {
             pointerGlow.style.opacity = '0';
         } else {
             let glowFrame;
