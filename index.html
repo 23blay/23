@@ -860,6 +860,8 @@ nav.scrolled {
     display: block;
     border-radius: 28px;
     transition: transform 0.6s ease, filter 0.6s ease;
+    will-change: transform;
+    image-rendering: auto;
 }
 
 .preview-image-wrapper:hover .preview-image {
@@ -1695,7 +1697,7 @@ footer p {
                 </div>
             </div>
             
-            <img src="https://www.dropbox.com/scl/fi/8id8wmqq9vofi49ejiaps/image.png?rlkey=ki4v4cgir8x1n82x5a3mwtu38&st=n0zd1a5f&dl=1" alt="23 Optimizer Interface" class="preview-image">
+            <img src="image.png" alt="23 Optimizer Interface" class="preview-image" loading="lazy" decoding="async">
             
             <div class="preview-stats">
                 <div class="preview-stat">
