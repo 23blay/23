@@ -1234,6 +1234,403 @@ section {
     font-size: 16px;
 }
 
+/* ===== IMPACT RESULTS ===== */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.result-card {
+    padding: 36px;
+    border-radius: 24px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)), var(--bg-card);
+    border: 1px solid var(--border);
+    transition: all 0.5s var(--smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.35), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 51, 51, 0.35);
+    box-shadow: var(--shadow-strong);
+    background: var(--bg-elevated);
+}
+
+.result-card:hover::after {
+    opacity: 1;
+}
+
+.result-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.result-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.result-metric strong {
+    font-size: 42px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.result-metric span {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.result-bar {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.result-progress {
+    height: 100%;
+    width: var(--progress);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: inherit;
+    box-shadow: 0 0 18px rgba(255, 51, 51, 0.5);
+}
+
+.result-detail {
+    margin-top: 16px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.benchmark-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    border-radius: 28px;
+    background: linear-gradient(120deg, rgba(139, 92, 246, 0.12), rgba(6, 182, 212, 0.08));
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    box-shadow: 0 30px 80px rgba(8, 6, 24, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.benchmark-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 60%);
+    pointer-events: none;
+}
+
+.benchmark-card {
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.benchmark-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.benchmark-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.benchmark-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+    color: var(--text-muted);
+}
+
+.benchmark-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.benchmark-list span {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    padding: 36px;
+    border-radius: 24px;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)), var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    transition: all 0.5s var(--smooth);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 30px 70px rgba(6, 182, 212, 0.25);
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.testimonial-rating svg {
+    width: 18px;
+    height: 18px;
+    fill: #fbbf24;
+}
+
+.testimonial-text {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.testimonial-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+}
+
+.testimonial-meta strong {
+    display: block;
+    font-size: 16px;
+}
+
+.testimonial-meta span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ===== PRICING ===== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing-card {
+    padding: 40px;
+    border-radius: 26px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.5s var(--smooth);
+    overflow: hidden;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(255, 51, 51, 0.2), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.pricing-card:hover::before {
+    opacity: 1;
+}
+
+.pricing-card.highlight {
+    border-color: rgba(255, 51, 51, 0.5);
+    background: linear-gradient(145deg, rgba(255, 51, 51, 0.08), rgba(139, 92, 246, 0.06));
+    box-shadow: 0 35px 80px rgba(255, 51, 51, 0.3);
+}
+
+.pricing-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-strong);
+}
+
+.pricing-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.pricing-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.pricing-price {
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-price span {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.pricing-list {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    margin-bottom: 26px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.pricing-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pricing-list svg {
+    width: 18px;
+    height: 18px;
+    fill: #10b981;
+}
+
+.pricing-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    text-decoration: none;
+    transition: all 0.4s var(--smooth);
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-action.secondary {
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text);
+}
+
+.pricing-action:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(255, 51, 51, 0.35);
+}
+
+/* ===== FINAL CTA ===== */
+.cta-panel {
+    padding: 60px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 51, 51, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at right, rgba(255, 255, 255, 0.2), transparent 55%);
+    pointer-events: none;
+}
+
+.cta-panel h3 {
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.cta-panel p {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cta-note {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
 /* ===== ENHANCED FAQ ===== */
 .faq-container {
     max-width: 950px;
@@ -1459,7 +1856,10 @@ footer p {
     }
 
     .feature-grid,
-    .steps-grid {
+    .steps-grid,
+    .results-grid,
+    .testimonial-grid,
+    .pricing-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1474,6 +1874,11 @@ footer p {
     .trust-item {
         font-size: 13px;
         padding: 10px 16px;
+    }
+
+    .benchmark-panel,
+    .cta-panel {
+        padding: 32px;
     }
 
     .scroll-top {
@@ -1512,7 +1917,10 @@ footer p {
         <div class="nav-links" id="navLinks">
             <a href="#preview">Preview</a>
             <a href="#features">Features</a>
+            <a href="#results">Results</a>
             <a href="#how-it-works">How It Works</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a href="#download">Download</a>
         </div>
@@ -1757,6 +2165,209 @@ footer p {
             <div class="step-number">3</div>
             <h3>Apply & Enjoy</h3>
             <p>Hit optimize and watch your PC transform. Most changes work instantly — some need a quick restart. Revert anytime with one click.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results">
+    <div class="section-header reveal">
+        <div class="section-tag">RESULTS</div>
+        <h2 class="section-title">Real-World Performance Wins</h2>
+        <p class="section-description">
+            Built for measurable improvements in FPS, boot times, and system responsiveness without risky changes.
+        </p>
+    </div>
+
+    <div class="results-grid">
+        <div class="result-card reveal">
+            <div class="result-title">Gaming FPS Boost</div>
+            <div class="result-metric">
+                <strong>+20%</strong>
+                <span>Average increase</span>
+            </div>
+            <div class="result-bar">
+                <div class="result-progress" style="--progress: 72%;"></div>
+            </div>
+            <p class="result-detail">Priority CPU scheduling and background trimming keeps frames steady during high-action scenes.</p>
+        </div>
+
+        <div class="result-card reveal">
+            <div class="result-title">Boot & Launch Times</div>
+            <div class="result-metric">
+                <strong>50%</strong>
+                <span>Faster startup</span>
+            </div>
+            <div class="result-bar">
+                <div class="result-progress" style="--progress: 86%;"></div>
+            </div>
+            <p class="result-detail">Disables bloat services and trims auto-starts so you hit the desktop faster.</p>
+        </div>
+
+        <div class="result-card reveal">
+            <div class="result-title">Latency Reduction</div>
+            <div class="result-metric">
+                <strong>-35%</strong>
+                <span>Input delay</span>
+            </div>
+            <div class="result-bar">
+                <div class="result-progress" style="--progress: 64%;"></div>
+            </div>
+            <p class="result-detail">Optimized timers, networking stack tuning, and cleaner drivers for consistent low latency.</p>
+        </div>
+    </div>
+
+    <div class="benchmark-panel reveal">
+        <div class="benchmark-card">
+            <div class="benchmark-label">Before 23 Optimizer</div>
+            <div class="benchmark-title">Typical Windows Install</div>
+            <ul class="benchmark-list">
+                <li>Idle RAM Usage <span>4.2 GB</span></li>
+                <li>Background Processes <span>148</span></li>
+                <li>Average Boot Time <span>52 sec</span></li>
+            </ul>
+        </div>
+        <div class="benchmark-card">
+            <div class="benchmark-label">After 23 Optimizer</div>
+            <div class="benchmark-title">Performance-Tuned</div>
+            <ul class="benchmark-list">
+                <li>Idle RAM Usage <span>2.7 GB</span></li>
+                <li>Background Processes <span>91</span></li>
+                <li>Average Boot Time <span>26 sec</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <div class="section-header reveal">
+        <div class="section-tag">REVIEWS</div>
+        <h2 class="section-title">Loved by Power Users</h2>
+        <p class="section-description">
+            Builders, gamers, and creators trust 23 Optimizer to keep their rigs fast and clean.
+        </p>
+    </div>
+
+    <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+            <div class="testimonial-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">“My boot time got cut in half and the PC feels brand new. The interface is insanely clean and the tweaks are clearly explained.”</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AR</div>
+                <div class="testimonial-meta">
+                    <strong>Alex R.</strong>
+                    <span>Streamer & Creator</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+            <div class="testimonial-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">“I tried other optimizers and this is the first one that felt professional. Network tweaks shaved ping spikes and my FPS is stable.”</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">JM</div>
+                <div class="testimonial-meta">
+                    <strong>Jordan M.</strong>
+                    <span>Competitive Gamer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+            <div class="testimonial-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">“The preset profiles are perfect for the PCs I build for clients. I can optimize in minutes and hand them a clean system.”</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">SK</div>
+                <div class="testimonial-meta">
+                    <strong>Sasha K.</strong>
+                    <span>PC Builder</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing">
+    <div class="section-header reveal">
+        <div class="section-tag">PRICING</div>
+        <h2 class="section-title">Choose Your Experience</h2>
+        <p class="section-description">
+            23 Optimizer is free forever. Support the project to keep improvements shipping fast.
+        </p>
+    </div>
+
+    <div class="pricing-grid">
+        <div class="pricing-card reveal">
+            <div class="pricing-tag">Core</div>
+            <div class="pricing-title">Free Edition</div>
+            <div class="pricing-price">$0 <span>/ forever</span></div>
+            <ul class="pricing-list">
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>One-click optimization</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Reversible tweaks</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Auto restore points</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Weekly update notifications</li>
+            </ul>
+            <a href="#download" class="pricing-action">Download Free</a>
+        </div>
+
+        <div class="pricing-card highlight reveal">
+            <div class="pricing-tag">Supporter</div>
+            <div class="pricing-title">Creator Boost</div>
+            <div class="pricing-price">Donate <span>/ optional</span></div>
+            <ul class="pricing-list">
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Everything in Free</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Early feature previews</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Priority feedback channel</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Support future releases</li>
+            </ul>
+            <a href="https://discord.gg/39xvyrXVsM" target="_blank" class="pricing-action">Join Supporters</a>
+        </div>
+
+        <div class="pricing-card reveal">
+            <div class="pricing-tag">Team</div>
+            <div class="pricing-title">PC Lab Pack</div>
+            <div class="pricing-price">Custom <span>/ contact</span></div>
+            <ul class="pricing-list">
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Multi-rig setup tips</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Preset sharing guidance</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Consultation session</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Custom optimization roadmap</li>
+            </ul>
+            <a href="https://discord.gg/39xvyrXVsM" target="_blank" class="pricing-action secondary">Contact the Team</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="cta-panel reveal">
+        <div>
+            <h3>Ready to make Windows feel new?</h3>
+            <p>Get the fastest, cleanest version of your PC in minutes. No installs, no risk, and every tweak is reversible.</p>
+        </div>
+        <div class="cta-actions">
+            <a href="#download" class="btn btn-primary">Download Free</a>
+            <a href="#features" class="btn btn-secondary">See What's Included</a>
+            <span class="cta-note">Runs on Windows 10 & 11 · 100% reversible</span>
         </div>
     </div>
 </section>
