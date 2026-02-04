@@ -1390,202 +1390,6 @@ section {
     font-weight: 700;
 }
 
-/* ===== TESTIMONIALS ===== */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.testimonial-card {
-    padding: 36px;
-    border-radius: 24px;
-    background: linear-gradient(150deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)), var(--bg-card);
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-    transition: all 0.5s var(--smooth);
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 30px 70px rgba(6, 182, 212, 0.25);
-}
-
-.testimonial-rating {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 18px;
-}
-
-.testimonial-rating svg {
-    width: 18px;
-    height: 18px;
-    fill: #fbbf24;
-}
-
-.testimonial-text {
-    color: var(--text);
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 24px;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.testimonial-avatar {
-    width: 46px;
-    height: 46px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-}
-
-.testimonial-meta strong {
-    display: block;
-    font-size: 16px;
-}
-
-.testimonial-meta span {
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-/* ===== PRICING ===== */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.pricing-card {
-    padding: 40px;
-    border-radius: 26px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    position: relative;
-    transition: all 0.5s var(--smooth);
-    overflow: hidden;
-}
-
-.pricing-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, rgba(255, 51, 51, 0.2), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.pricing-card:hover::before {
-    opacity: 1;
-}
-
-.pricing-card.highlight {
-    border-color: rgba(255, 51, 51, 0.5);
-    background: linear-gradient(145deg, rgba(255, 51, 51, 0.08), rgba(139, 92, 246, 0.06));
-    box-shadow: 0 35px 80px rgba(255, 51, 51, 0.3);
-}
-
-.pricing-card:hover {
-    transform: translateY(-12px);
-    box-shadow: var(--shadow-strong);
-}
-
-.pricing-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.pricing-title {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.pricing-price {
-    font-size: 46px;
-    font-weight: 900;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.pricing-price span {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.pricing-list {
-    list-style: none;
-    display: grid;
-    gap: 14px;
-    margin-bottom: 26px;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.pricing-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pricing-list svg {
-    width: 18px;
-    height: 18px;
-    fill: #10b981;
-}
-
-.pricing-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 14px 20px;
-    border-radius: 999px;
-    border: none;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
-    text-decoration: none;
-    transition: all 0.4s var(--smooth);
-    position: relative;
-    z-index: 1;
-}
-
-.pricing-action.secondary {
-    background: transparent;
-    border: 1px solid var(--border-light);
-    color: var(--text);
-}
-
-.pricing-action:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(255, 51, 51, 0.35);
-}
-
 /* ===== FINAL CTA ===== */
 .cta-panel {
     padding: 60px;
@@ -1857,9 +1661,7 @@ footer p {
 
     .feature-grid,
     .steps-grid,
-    .results-grid,
-    .testimonial-grid,
-    .pricing-grid {
+    .results-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1919,8 +1721,6 @@ footer p {
             <a href="#features">Features</a>
             <a href="#results">Results</a>
             <a href="#how-it-works">How It Works</a>
-            <a href="#testimonials">Reviews</a>
-            <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a href="#download">Download</a>
         </div>
@@ -1943,8 +1743,7 @@ footer p {
         <h1>Make Windows Fast Again</h1>
         
         <p class="hero-description">
-            Professional-grade Windows optimization in one click.<br>
-            Safe, reversible, and designed for gamers and power users.
+            One-click Windows optimization with safe, reversible tweaks for gamers and power users.
         </p>
 
         <div class="cta-group">
@@ -1992,9 +1791,8 @@ footer p {
                 <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
             </svg>
             <div class="warning-content">
-                <strong>Windows SmartScreen Warning</strong>
-                Windows may show a security warning because this tool isn't code-signed (costs $1000+/year). 
-                Simply click <strong>"More info"</strong> then <strong>"Run anyway"</strong> — the app is completely safe.
+                <strong>SmartScreen notice</strong>
+                Windows may warn about unsigned apps. Click <strong>"More info"</strong> → <strong>"Run anyway"</strong>.
             </div>
         </div>
 
@@ -2021,7 +1819,7 @@ footer p {
         <div class="section-tag">PREVIEW</div>
         <h2 class="section-title">See It In Action</h2>
         <p class="section-description">
-            A clean, intuitive interface that puts professional optimization at your fingertips
+            Clean UI with clear controls and preset profiles.
         </p>
     </div>
 
@@ -2071,7 +1869,7 @@ footer p {
         <div class="section-tag">FEATURES</div>
         <h2 class="section-title">Optimize Everything</h2>
         <p class="section-description">
-            Carefully crafted tweaks that enhance every aspect of your Windows experience
+            Focused tweaks for performance, latency, and privacy.
         </p>
     </div>
 
@@ -2083,7 +1881,7 @@ footer p {
                 </svg>
             </div>
             <h3>System Performance</h3>
-            <p>Optimizes process scheduling, reduces background load, and fine-tunes system priorities for maximum responsiveness in everyday use.</p>
+            <p>Prioritizes critical processes and reduces background load for faster response.</p>
         </div>
 
         <div class="feature-card reveal">
@@ -2093,7 +1891,7 @@ footer p {
                 </svg>
             </div>
             <h3>Gaming Performance</h3>
-            <p>Reduces input lag, minimizes background interference, and optimizes CPU/GPU scheduling for buttery-smooth gameplay and higher FPS.</p>
+            <p>Reduces input lag and improves CPU/GPU scheduling for higher FPS.</p>
         </div>
 
         <div class="feature-card reveal">
@@ -2103,7 +1901,7 @@ footer p {
                 </svg>
             </div>
             <h3>Network Optimization</h3>
-            <p>Tweaks TCP/IP stack, reduces network latency, and optimizes adapter settings for stable connections and lower ping times.</p>
+            <p>Tweaks the network stack for lower ping and more stable connections.</p>
         </div>
 
         <div class="feature-card reveal">
@@ -2113,7 +1911,7 @@ footer p {
                 </svg>
             </div>
             <h3>100% Safe</h3>
-            <p>Every tweak is thoroughly tested and completely reversible. No risky modifications to core system files or permanent changes.</p>
+            <p>Fully reversible tweaks with no core system file changes.</p>
         </div>
 
         <div class="feature-card reveal">
@@ -2123,7 +1921,7 @@ footer p {
                 </svg>
             </div>
             <h3>Faster Boot Times</h3>
-            <p>Intelligently disables unnecessary startup programs and services to get you to your desktop significantly faster after each restart.</p>
+            <p>Disables unnecessary startup tasks for faster boot times.</p>
         </div>
 
         <div class="feature-card reveal">
@@ -2133,7 +1931,7 @@ footer p {
                 </svg>
             </div>
             <h3>Privacy Controls</h3>
-            <p>Reduces Windows telemetry and data collection while keeping essential features intact. Your data stays on your machine.</p>
+            <p>Reduces telemetry while keeping essential Windows features intact.</p>
         </div>
     </div>
 </section>
@@ -2144,7 +1942,7 @@ footer p {
         <div class="section-tag">SIMPLE PROCESS</div>
         <h2 class="section-title">How It Works</h2>
         <p class="section-description">
-            Get your PC running at peak performance in three easy steps
+            Apply optimizations in three steps.
         </p>
     </div>
 
@@ -2152,19 +1950,19 @@ footer p {
         <div class="step-card reveal">
             <div class="step-number">1</div>
             <h3>Download & Launch</h3>
-            <p>Download the portable .exe file — no installation required. Run it with administrator privileges for full access to system tweaks.</p>
+            <p>Download the portable .exe and run as admin.</p>
         </div>
 
         <div class="step-card reveal">
             <div class="step-number">2</div>
             <h3>Select Optimizations</h3>
-            <p>Choose from our curated presets or customize individual tweaks. Each option explains exactly what it does to your system.</p>
+            <p>Select a preset or customize individual tweaks.</p>
         </div>
 
         <div class="step-card reveal">
             <div class="step-number">3</div>
             <h3>Apply & Enjoy</h3>
-            <p>Hit optimize and watch your PC transform. Most changes work instantly — some need a quick restart. Revert anytime with one click.</p>
+            <p>Apply changes. Most take effect immediately; revert anytime.</p>
         </div>
     </div>
 </section>
@@ -2173,9 +1971,9 @@ footer p {
 <section id="results">
     <div class="section-header reveal">
         <div class="section-tag">RESULTS</div>
-        <h2 class="section-title">Real-World Performance Wins</h2>
+        <h2 class="section-title">Measured Performance Gains</h2>
         <p class="section-description">
-            Built for measurable improvements in FPS, boot times, and system responsiveness without risky changes.
+            Measurable improvements in FPS, boot time, and responsiveness.
         </p>
     </div>
 
@@ -2189,11 +1987,11 @@ footer p {
             <div class="result-bar">
                 <div class="result-progress" style="--progress: 72%;"></div>
             </div>
-            <p class="result-detail">Priority CPU scheduling and background trimming keeps frames steady during high-action scenes.</p>
+            <p class="result-detail">CPU scheduling and background trimming keep frames steady.</p>
         </div>
 
         <div class="result-card reveal">
-            <div class="result-title">Boot & Launch Times</div>
+            <div class="result-title">Boot & Launch Time</div>
             <div class="result-metric">
                 <strong>50%</strong>
                 <span>Faster startup</span>
@@ -2201,7 +1999,7 @@ footer p {
             <div class="result-bar">
                 <div class="result-progress" style="--progress: 86%;"></div>
             </div>
-            <p class="result-detail">Disables bloat services and trims auto-starts so you hit the desktop faster.</p>
+            <p class="result-detail">Cuts bloat services and auto-starts.</p>
         </div>
 
         <div class="result-card reveal">
@@ -2213,7 +2011,7 @@ footer p {
             <div class="result-bar">
                 <div class="result-progress" style="--progress: 64%;"></div>
             </div>
-            <p class="result-detail">Optimized timers, networking stack tuning, and cleaner drivers for consistent low latency.</p>
+            <p class="result-detail">Optimized timers and networking for lower latency.</p>
         </div>
     </div>
 
@@ -2222,138 +2020,19 @@ footer p {
             <div class="benchmark-label">Before 23 Optimizer</div>
             <div class="benchmark-title">Typical Windows Install</div>
             <ul class="benchmark-list">
-                <li>Idle RAM Usage <span>4.2 GB</span></li>
+                <li>Idle RAM <span>4.2 GB</span></li>
                 <li>Background Processes <span>148</span></li>
-                <li>Average Boot Time <span>52 sec</span></li>
+                <li>Boot Time <span>52 sec</span></li>
             </ul>
         </div>
         <div class="benchmark-card">
             <div class="benchmark-label">After 23 Optimizer</div>
             <div class="benchmark-title">Performance-Tuned</div>
             <ul class="benchmark-list">
-                <li>Idle RAM Usage <span>2.7 GB</span></li>
+                <li>Idle RAM <span>2.7 GB</span></li>
                 <li>Background Processes <span>91</span></li>
-                <li>Average Boot Time <span>26 sec</span></li>
+                <li>Boot Time <span>26 sec</span></li>
             </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials">
-    <div class="section-header reveal">
-        <div class="section-tag">REVIEWS</div>
-        <h2 class="section-title">Loved by Power Users</h2>
-        <p class="section-description">
-            Builders, gamers, and creators trust 23 Optimizer to keep their rigs fast and clean.
-        </p>
-    </div>
-
-    <div class="testimonial-grid">
-        <div class="testimonial-card reveal">
-            <div class="testimonial-rating">
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-            </div>
-            <p class="testimonial-text">“My boot time got cut in half and the PC feels brand new. The interface is insanely clean and the tweaks are clearly explained.”</p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">AR</div>
-                <div class="testimonial-meta">
-                    <strong>Alex R.</strong>
-                    <span>Streamer & Creator</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-            <div class="testimonial-rating">
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-            </div>
-            <p class="testimonial-text">“I tried other optimizers and this is the first one that felt professional. Network tweaks shaved ping spikes and my FPS is stable.”</p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">JM</div>
-                <div class="testimonial-meta">
-                    <strong>Jordan M.</strong>
-                    <span>Competitive Gamer</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-            <div class="testimonial-rating">
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.8 1.2 6.7L12 17.8 6.1 20.5l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-            </div>
-            <p class="testimonial-text">“The preset profiles are perfect for the PCs I build for clients. I can optimize in minutes and hand them a clean system.”</p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">SK</div>
-                <div class="testimonial-meta">
-                    <strong>Sasha K.</strong>
-                    <span>PC Builder</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Pricing Section -->
-<section id="pricing">
-    <div class="section-header reveal">
-        <div class="section-tag">PRICING</div>
-        <h2 class="section-title">Choose Your Experience</h2>
-        <p class="section-description">
-            23 Optimizer is free forever. Support the project to keep improvements shipping fast.
-        </p>
-    </div>
-
-    <div class="pricing-grid">
-        <div class="pricing-card reveal">
-            <div class="pricing-tag">Core</div>
-            <div class="pricing-title">Free Edition</div>
-            <div class="pricing-price">$0 <span>/ forever</span></div>
-            <ul class="pricing-list">
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>One-click optimization</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Reversible tweaks</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Auto restore points</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Weekly update notifications</li>
-            </ul>
-            <a href="#download" class="pricing-action">Download Free</a>
-        </div>
-
-        <div class="pricing-card highlight reveal">
-            <div class="pricing-tag">Supporter</div>
-            <div class="pricing-title">Creator Boost</div>
-            <div class="pricing-price">Donate <span>/ optional</span></div>
-            <ul class="pricing-list">
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Everything in Free</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Early feature previews</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Priority feedback channel</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Support future releases</li>
-            </ul>
-            <a href="https://discord.gg/39xvyrXVsM" target="_blank" class="pricing-action">Join Supporters</a>
-        </div>
-
-        <div class="pricing-card reveal">
-            <div class="pricing-tag">Team</div>
-            <div class="pricing-title">PC Lab Pack</div>
-            <div class="pricing-price">Custom <span>/ contact</span></div>
-            <ul class="pricing-list">
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Multi-rig setup tips</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Preset sharing guidance</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Consultation session</li>
-                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Custom optimization roadmap</li>
-            </ul>
-            <a href="https://discord.gg/39xvyrXVsM" target="_blank" class="pricing-action secondary">Contact the Team</a>
         </div>
     </div>
 </section>
@@ -2362,7 +2041,7 @@ footer p {
     <div class="cta-panel reveal">
         <div>
             <h3>Ready to make Windows feel new?</h3>
-            <p>Get the fastest, cleanest version of your PC in minutes. No installs, no risk, and every tweak is reversible.</p>
+            <p>Get a faster, cleaner PC in minutes. No installs. Fully reversible.</p>
         </div>
         <div class="cta-actions">
             <a href="#download" class="btn btn-primary">Download Free</a>
