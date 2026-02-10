@@ -47,6 +47,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-rendering: optimizeLegibility;
     background: radial-gradient(circle at top, rgba(255, 51, 51, 0.08), transparent 40%),
         radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.12), transparent 45%),
         var(--bg-dark);
@@ -765,235 +766,6 @@ nav.scrolled {
     letter-spacing: 0.3px;
 }
 
-/* ===== ENHANCED APP PREVIEW ===== */
-.app-preview {
-    padding: 140px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.preview-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.preview-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    background: radial-gradient(circle, rgba(255, 51, 51, 0.25) 0%, transparent 70%);
-    filter: blur(120px);
-    animation: pulseGlow 5s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes pulseGlow {
-    0%, 100% {
-        opacity: 0.4;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        opacity: 0.7;
-        transform: translate(-50%, -50%) scale(1.15);
-    }
-}
-
-.preview-image-wrapper {
-    position: relative;
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-    background: linear-gradient(135deg, rgba(255, 51, 51, 0.06), rgba(139, 92, 246, 0.06));
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    transition: all 0.6s var(--smooth);
-}
-
-.preview-image-wrapper:hover {
-    transform: translateY(-20px) scale(1.02);
-    box-shadow: 
-        0 60px 140px rgba(255, 51, 51, 0.5),
-        0 0 0 1px rgba(255, 51, 51, 0.4) inset,
-        0 0 120px rgba(255, 51, 51, 0.3);
-    border-color: rgba(255, 51, 51, 0.6);
-}
-
-.preview-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-    background-size: 300% 100%;
-    z-index: 2;
-    animation: gradientSlide 4s ease-in-out infinite;
-}
-
-@keyframes gradientSlide {
-    0%, 100% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 0%;
-    }
-}
-
-.preview-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 28px;
-    padding: 3px;
-    background: linear-gradient(135deg, 
-        rgba(255, 51, 51, 0.4) 0%, 
-        transparent 25%, 
-        transparent 75%, 
-        rgba(139, 92, 246, 0.4) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.preview-image-wrapper:hover::after {
-    opacity: 1;
-}
-
-.preview-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 28px;
-    transition: all 0.6s ease;
-}
-
-.preview-image-wrapper:hover .preview-image {
-    filter: brightness(1.08) contrast(1.05) saturate(1.1);
-}
-
-.preview-badges {
-    position: absolute;
-    top: 35px;
-    left: 35px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 3;
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.6s var(--smooth) 0.2s;
-}
-
-.preview-image-wrapper:hover .preview-badges {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.preview-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: rgba(10, 10, 15, 0.98);
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 51, 51, 0.35);
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--primary);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    animation: badgeFloat 3s ease-in-out infinite;
-    animation-delay: calc(var(--i) * 0.2s);
-}
-
-.preview-badge:nth-child(1) { --i: 0; }
-.preview-badge:nth-child(2) { --i: 1; }
-.preview-badge:nth-child(3) { --i: 2; }
-
-@keyframes badgeFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-.preview-badge svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--primary);
-}
-
-.preview-stats {
-    position: absolute;
-    bottom: 35px;
-    right: 35px;
-    display: flex;
-    gap: 18px;
-    z-index: 3;
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.6s var(--smooth) 0.3s;
-}
-
-.preview-image-wrapper:hover .preview-stats {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.preview-stat {
-    padding: 18px 24px;
-    background: rgba(10, 10, 15, 0.98);
-    backdrop-filter: blur(30px);
-    border: 1px solid var(--border-light);
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-}
-
-.preview-stat:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 51, 51, 0.4);
-    box-shadow: 0 15px 50px rgba(255, 51, 51, 0.3);
-}
-
-.preview-stat-number {
-    display: block;
-    font-size: 28px;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 6px;
-}
-
-.preview-stat-label {
-    display: block;
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-}
-
 /* ===== SECTIONS ===== */
 section {
     padding: 140px 40px;
@@ -1469,76 +1241,6 @@ section {
     color: var(--text-muted);
 }
 
-/* ===== ENHANCED FAQ ===== */
-.faq-container {
-    max-width: 950px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    margin-bottom: 24px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.faq-item:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.faq-item.active {
-    border-color: rgba(255, 51, 51, 0.4);
-    box-shadow: 0 12px 40px rgba(255, 51, 51, 0.2);
-}
-
-.faq-question {
-    padding: 28px 35px;
-    font-size: 19px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-    color: var(--primary);
-}
-
-.faq-toggle {
-    width: 26px;
-    height: 26px;
-    fill: var(--primary);
-    transition: transform 0.4s var(--smooth);
-    flex-shrink: 0;
-}
-
-.faq-item.active .faq-toggle {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s var(--smooth);
-}
-
-.faq-item.active .faq-answer {
-    max-height: 600px;
-}
-
-.faq-answer-content {
-    padding: 0 35px 28px;
-    color: var(--text-muted);
-    line-height: 1.9;
-    font-size: 16px;
-}
-
 /* ===== ENHANCED FOOTER ===== */
 footer {
     padding: 100px 40px 50px;
@@ -1637,9 +1339,9 @@ footer p {
 /* ===== SCROLL REVEAL ===== */
 .reveal {
     opacity: 0;
-    transform: translateY(50px) scale(0.98);
-    filter: blur(8px);
-    transition: all 1s var(--smooth-snap);
+    transform: translateY(36px) scale(0.99);
+    filter: blur(5px);
+    transition: opacity 0.75s var(--smooth-snap), transform 0.75s var(--smooth-snap), filter 0.75s var(--smooth-snap);
 }
 
 .reveal.active {
@@ -1699,10 +1401,6 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .app-preview {
-        padding: 100px 24px;
-    }
-
     .trust-items {
         gap: 15px;
     }
@@ -1751,11 +1449,9 @@ footer p {
         </a>
         
         <div class="nav-links" id="navLinks">
-            <a href="#preview">Preview</a>
             <a href="#features">Features</a>
             <a href="#results">Results</a>
             <a href="#how-it-works">How It Works</a>
-            <a href="#faq">FAQ</a>
             <a href="#download">Download</a>
         </div>
         
@@ -1788,14 +1484,6 @@ footer p {
                     </svg>
                 </span>
                 Download v1.2
-            </a>
-            <a href="#preview" class="btn btn-secondary">
-                See Preview
-                <span class="btn-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                    </svg>
-                </span>
             </a>
         </div>
 
@@ -1842,56 +1530,6 @@ footer p {
             <div class="stat-card">
                 <span class="stat-number">100%</span>
                 <span class="stat-label">Reversible</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- App Preview Section -->
-<section id="preview" class="app-preview">
-    <div class="section-header reveal">
-        <div class="section-tag">PREVIEW</div>
-        <h2 class="section-title">See It In Action</h2>
-        <p class="section-description">
-            Clean UI with clear controls and preset profiles.
-        </p>
-    </div>
-
-    <div class="preview-container reveal">
-        <div class="preview-glow"></div>
-        <div class="preview-image-wrapper">
-            <div class="preview-badges">
-                <div class="preview-badge">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-                    </svg>
-                    One-Click Optimize
-                </div>
-                <div class="preview-badge">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                    </svg>
-                    100% Safe
-                </div>
-                <div class="preview-badge">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Fully Reversible
-                </div>
-            </div>
-            
-            <img src="image.png" alt="23 Optimizer Interface" class="preview-image" loading="lazy" decoding="async">
-            
-            <div class="preview-stats">
-                <div class="preview-stat">
-                    <span class="preview-stat-number">+20%</span>
-                    <span class="preview-stat-label">FPS Boost</span>
-                </div>
-                <div class="preview-stat">
-                    <span class="preview-stat-number">50%</span>
-                    <span class="preview-stat-label">Faster Boot</span>
-                </div>
             </div>
         </div>
     </div>
@@ -2085,100 +1723,6 @@ footer p {
     </div>
 </section>
 
-<!-- FAQ Section -->
-<section id="faq">
-    <div class="section-header reveal">
-        <div class="section-tag">FAQ</div>
-        <h2 class="section-title">Common Questions</h2>
-    </div>
-
-    <div class="faq-container">
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                Is 23 Optimizer completely safe to use?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    Yes! 23 Optimizer only makes registry and system setting changes that are well-documented and widely used by power users. We don't touch core Windows files or install drivers. Every single tweak is fully reversible with one click.
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                Why does Windows give me a security warning?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    Windows SmartScreen shows warnings for unsigned applications. Code signing certificates cost thousands of dollars per year, which isn't viable for free software. The tool is completely safe and open-source — just click "More info" → "Run anyway."
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                Will this break my Windows installation?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    No. All optimizations are tested extensively across thousands of systems. The tool creates automatic restore points and every change can be undone. We've never had a single report of permanent system damage.
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                Do I need administrator rights to run this?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    Yes, administrator privileges are required to modify system settings and registry keys. Windows will prompt you to elevate permissions when you launch the application.
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                How much faster will my PC be?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    Results vary by system configuration. Most users report 5-20% FPS gains in games, 30-50% faster boot times, and significantly snappier overall performance. Older systems and bloated installations see the biggest improvements.
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item reveal">
-            <div class="faq-question">
-                Does this work on Windows 11?
-                <svg class="faq-toggle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                </svg>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    Absolutely! 23 Optimizer is fully compatible with both Windows 10 and Windows 11. All tweaks are tested on the latest versions and updates of both operating systems.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Footer -->
 <footer>
     <div class="footer-logo">23 OPTIMIZER</div>
@@ -2334,22 +1878,6 @@ footer p {
 
     document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', () => {
-            const item = question.parentElement;
-            const wasActive = item.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            
-            // Open clicked item if it wasn't active
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-
     // Light pointer tilt for cards
     if (!prefersReducedMotion) {
         const tiltCards = document.querySelectorAll('.feature-card, .step-card, .result-card');
@@ -2410,7 +1938,7 @@ footer p {
 
     revealElements.forEach((el, index) => {
         if (!prefersReducedMotion) {
-            el.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
+            el.style.transitionDelay = `${Math.min(index * 24, 180)}ms`;
         }
         revealObserver.observe(el);
     });
@@ -2424,7 +1952,7 @@ footer p {
         });
     }, { threshold: 0.45 });
 
-    document.querySelectorAll('.stat-number, .preview-stat-number, .result-metric strong').forEach(el => numberObserver.observe(el));
+    document.querySelectorAll('.stat-number, .result-metric strong').forEach(el => numberObserver.observe(el));
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
