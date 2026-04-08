@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 Accounts | Premium Accounts & Keys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=General+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#040404;
+  --surface:rgba(255,255,255,.035);
+  --surface-hi:rgba(255,255,255,.06);
+  --surface-lo:rgba(255,255,255,.018);
+  --text:#f0ebe5;
+  --text-dim:#9a918a;
+  --text-mid:#c4bab2;
+  --ember:#ff3d2e;
+  --ember-warm:#ff6a42;
+  --ember-glow:rgba(255,61,46,.15);
+  --ember-deep:rgba(255,61,46,.08);
+  --line:rgba(255,255,255,.07);
+  --line-hi:rgba(255,255,255,.12);
+  --radius:28px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --max-w:1240px;
+}
+
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+
+body{
+  font-family:"General Sans",-apple-system,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.55;
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ─── GRAIN OVERLAY ─── */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px;
+}
+
+/* ─── AMBIENT GLOW ─── */
+.glow-top{
+  position:fixed;top:-340px;left:50%;transform:translateX(-50%);
+  width:900px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,46,.13) 0%,rgba(255,106,66,.06) 35%,transparent 70%);
+  pointer-events:none;z-index:0;
+  animation:glowPulse 8s ease-in-out infinite alternate;
+}
+@keyframes glowPulse{0%{opacity:.7;transform:translateX(-50%) scale(1)}100%{opacity:1;transform:translateX(-50%) scale(1.08)}}
+
+.glow-bottom{
+  position:fixed;bottom:-400px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,46,.08),transparent 65%);
+  pointer-events:none;z-index:0;
+}
+
+/* ─── GRID TEXTURE ─── */
+.grid-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.5) 0%,transparent 60%);
+}
+
+
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.w{width:min(var(--max-w),calc(100% - 40px));margin:0 auto;position:relative;z-index:1}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  background:rgba(4,4,4,.72);
+  border-bottom:1px solid var(--line);
+}
+.topbar .w{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;gap:20px;
+}
+.brand{display:inline-flex;align-items:center;gap:14px}
+.brand-mark{
+  width:46px;height:46px;border-radius:14px;
+  display:grid;place-items:center;
+  font-family:"Syne",sans-serif;font-weight:800;font-size:.95rem;
+  color:#0a0000;
+  background:linear-gradient(140deg,var(--ember),var(--ember-warm) 60%,#ffb27a);
+  box-shadow:0 8px 30px rgba(255,61,46,.35),inset 0 1px 0 rgba(255,255,255,.25);
+}
+.brand-text{display:flex;flex-direction:column;gap:1px}
+.brand-text strong{font-family:"Syne",sans-serif;font-size:1rem;font-weight:700;letter-spacing:-.02em}
+.brand-text span{font-size:.75rem;color:var(--text-dim);letter-spacing:.04em;text-transform:uppercase}
+
+.nav-links{display:flex;align-items:center;gap:32px;font-size:.9rem;color:var(--text-dim)}
+.nav-links a{position:relative;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--ember);transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+
+.btn,.btn-outline{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 24px;border-radius:999px;
+  font-family:"Syne",sans-serif;font-size:.88rem;font-weight:600;
+  letter-spacing:.01em;
+  transition:all .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.btn{
+  color:#0a0000;
+  background:linear-gradient(135deg,var(--ember),var(--ember-warm));
+  box-shadow:0 12px 40px rgba(255,61,46,.3),0 2px 8px rgba(255,61,46,.15);
+}
+.btn::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--ember-warm),#ffb27a);
+  opacity:0;transition:opacity .3s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(255,61,46,.4)}
+.btn:hover::before{opacity:1}
+.btn span{position:relative;z-index:1}
+
+.btn-outline{
+  border:1px solid var(--line);background:var(--surface-lo);color:var(--text);
+}
+.btn-outline:hover{border-color:var(--line-hi);background:var(--surface);transform:translateY(-2px)}
+
+/* ─── HERO ─── */
+.hero{padding:72px 0 48px}
+.hero-row{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;align-items:stretch;
+}
+
+.hero-left{
+  position:relative;overflow:hidden;
+  padding:56px 52px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--surface-hi),var(--surface-lo) 60%);
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+.hero-left::before{
+  content:"";position:absolute;right:-60px;bottom:-80px;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,46,.22),transparent 65%);
+  pointer-events:none;
+}
+.hero-left::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,61,46,.25),transparent);
+}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  background:var(--ember-glow);border:1px solid rgba(255,61,46,.2);
+  color:#ffcbc5;
+}
+.eyebrow::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--ember);
+  box-shadow:0 0 8px var(--ember);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{
+  margin-top:28px;
+  font-family:"Syne",sans-serif;
+  font-size:clamp(3rem,7.5vw,6.5rem);
+  font-weight:800;line-height:.92;letter-spacing:-.05em;
+  max-width:11ch;
+}
+h1 em{
+  font-family:"Instrument Serif",serif;
+  font-style:italic;font-weight:400;
+  color:#ff8b7a;
+}
+
+h2{
+  font-family:"Syne",sans-serif;
+  font-size:clamp(2rem,4.5vw,3.8rem);
+  font-weight:800;line-height:.95;letter-spacing:-.04em;
+}
+
+.hero-desc{
+  max-width:480px;margin:24px 0 0;
+  color:var(--text-dim);font-size:1.05rem;line-height:1.6;
+}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.hero-tags span{
+  padding:10px 16px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface-lo);
+  color:var(--text-dim);font-size:.82rem;
+  transition:border-color .3s,color .3s;
+}
+.hero-tags span:hover{border-color:var(--line-hi);color:var(--text-mid)}
+
+/* ─── HERO RIGHT ─── */
+.hero-right{display:grid;gap:20px}
+
+.stat-card{
+  position:relative;overflow:hidden;
+  padding:32px 28px;border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--surface-hi),var(--surface-lo));
+}
+.stat-card::before{
+  content:"";position:absolute;inset:auto auto -60px -60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,46,.18),transparent 65%);
+  pointer-events:none;
+}
+.stat-card .label{
+  font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-dim);font-weight:600;
+}
+.stat-card .value{
+  font-family:"Syne",sans-serif;font-size:2.6rem;font-weight:800;
+  letter-spacing:-.04em;line-height:1;margin-top:12px;
+}
+.stat-card .value em{
+  font-family:"Instrument Serif",serif;
+  font-style:italic;font-weight:400;color:#ff8b7a;
+}
+.stat-card .note{color:var(--text-dim);font-size:.88rem;margin-top:10px}
+
+.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mini-stat{
+  padding:22px;border-radius:20px;
+  border:1px solid var(--line);background:var(--surface-lo);
+}
+.mini-stat .label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);font-weight:600}
+.mini-stat .val{font-family:"Syne",sans-serif;font-size:1.4rem;font-weight:700;margin-top:8px;letter-spacing:-.02em}
+.mini-stat .sub{color:var(--text-dim);font-size:.82rem;margin-top:6px}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  margin:48px 0 0;padding:20px 0;position:relative;z-index:1;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.marquee-track{
+  display:flex;gap:48px;
+  animation:scroll 25s linear infinite;
+  width:max-content;
+}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-track span{
+  white-space:nowrap;font-family:"Syne",sans-serif;
+  font-size:1rem;font-weight:600;color:var(--text-dim);
+  letter-spacing:.02em;
+}
+.marquee-track span::after{
+  content:"◆";margin-left:48px;color:var(--ember);font-size:.6rem;vertical-align:middle;
+}
+
+/* ─── SECTIONS ─── */
+section{padding:56px 0}
+.section-header{margin-bottom:32px}
+.section-tag{
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;color:var(--ember-warm);
+}
+.section-header h2{margin-top:8px}
+.section-header .desc{max-width:520px;color:var(--text-dim);margin-top:14px;font-size:.98rem}
+.section-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+
+/* ─── Products ─── */
+.Products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.product{
+  position:relative;overflow:hidden;
+  padding:28px 24px 24px;border-radius:22px;
+  border:1px solid var(--line);
+  background:linear-gradient(170deg,var(--surface-hi),var(--surface-lo));
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+  display:flex;flex-direction:column;
+  cursor:pointer;
+  text-decoration:none;color:inherit;
+}
+.product::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(255,61,46,.12),transparent 55%);
+  opacity:0;transition:opacity .4s;
+}
+.product:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,61,46,.35);
+  box-shadow:0 28px 64px rgba(0,0,0,.5),0 0 0 1px rgba(255,61,46,.15),0 0 40px rgba(255,61,46,.06);
+}
+.product:hover::before{opacity:1}
+
+.product-icon{
+  width:52px;height:52px;border-radius:16px;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08);
+  margin-bottom:18px;
+  overflow:hidden;
+}
+.product-icon img{
+  width:34px;height:34px;object-fit:contain;
+}
+.product-price{
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-dim);font-weight:600;margin-bottom:6px;
+}
+.product h3{
+  font-family:"Syne",sans-serif;font-size:1.05rem;font-weight:700;
+  letter-spacing:-.01em;
+}
+.product p{
+  color:var(--text-dim);font-size:.88rem;margin:10px 0 20px;line-height:1.5;
+  flex:1;
+}
+.product-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-family:"Syne",sans-serif;font-weight:600;font-size:.83rem;
+  color:#0a0000;
+  background:linear-gradient(135deg,var(--ember),var(--ember-warm));
+  padding:10px 18px;border-radius:999px;
+  box-shadow:0 6px 20px rgba(255,61,46,.25);
+  transition:box-shadow .3s var(--ease),transform .3s var(--ease),background .3s;
+  position:relative;z-index:1;
+  pointer-events:none; /* card itself is the link */
+  letter-spacing:.01em;
+}
+.product:hover .product-link{
+  box-shadow:0 10px 30px rgba(255,61,46,.4);
+  transform:translateY(-1px);
+}
+.product-link svg{width:13px;height:13px;transition:transform .3s var(--ease)}
+.product:hover .product-link svg{transform:translateX(3px)}
+
+/* ─── FAQ ─── */
+.faq-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.faq-item{
+  padding:28px;border-radius:22px;
+  border:1px solid var(--line);
+  background:linear-gradient(170deg,var(--surface-hi),var(--surface-lo));
+  transition:border-color .3s,transform .3s var(--ease);
+}
+.faq-item:hover{border-color:var(--line-hi);transform:translateY(-3px)}
+.faq-item h3{
+  font-family:"Syne",sans-serif;font-size:1rem;font-weight:700;
+  letter-spacing:-.01em;
+}
+.faq-item p{color:var(--text-dim);font-size:.9rem;margin-top:10px;line-height:1.55}
+
+/* ─── CTA ─── */
+.cta{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  margin:24px 0 64px;padding:48px 52px;
+  border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--surface-hi),var(--surface-lo));
+  box-shadow:0 40px 80px rgba(0,0,0,.4);
+}
+.cta::before{
+  content:"";position:absolute;right:-100px;top:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,46,.15),transparent 60%);
+  pointer-events:none;
+}
+.cta::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,61,46,.2),transparent);
+}
+.cta .desc{color:var(--text-dim);margin-top:12px;max-width:520px;font-size:.98rem}
+
+/* ─── FOOTER ─── */
+footer{padding-bottom:32px}
+.footer-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 28px;border-radius:22px;
+  border:1px solid var(--line);background:var(--surface-lo);
+}
+.footer-links{display:flex;flex-wrap:wrap;gap:24px;color:var(--text-dim);font-size:.88rem}
+.footer-links a{transition:color .25s}
+.footer-links a:hover{color:var(--text)}
+
+/* ─── REVEAL ANIMATION ─── */
+.r{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.r.v{opacity:1;transform:translateY(0)}
+.r.d1{transition-delay:.08s}
+.r.d2{transition-delay:.16s}
+.r.d3{transition-delay:.24s}
+.r.d4{transition-delay:.32s}
+.r.d5{transition-delay:.4s}
+.r.d6{transition-delay:.48s}
+.r.d7{transition-delay:.56s}
+.r.d8{transition-delay:.64s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+  .hero-row{grid-template-columns:1fr}
+  .Products-grid{grid-template-columns:repeat(2,1fr)}
+  .section-top{flex-direction:column;align-items:flex-start}
+  .cta{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:720px){
+  .w{width:min(var(--max-w),calc(100% - 24px))}
+  .nav-links{display:none}
+  .hero{padding:36px 0 32px}
+  .hero-left{padding:32px 24px}
+  h1{font-size:clamp(2.6rem,13vw,4rem)}
+  .hero-actions{flex-direction:column}
+  .btn,.btn-outline{width:100%;justify-content:center}
+  .Products-grid,.faq-grid,.mini-row{grid-template-columns:1fr}
+  .cta{padding:32px 24px}
+  .footer-bar{flex-direction:column;align-items:flex-start;gap:14px}
+
+}
+</style>
+</head>
+<body>
+
+<div class="glow-top"></div>
+<div class="glow-bottom"></div>
+<div class="grid-bg"></div>
+
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="w">
+    <a href="#top" class="brand">
+      <span class="brand-mark">23</span>
+      <span class="brand-text">
+        <strong>23 Accounts</strong>
+        <span>Premium Accounts & Keys</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#Products">Products</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer">Discord</a>
+    </nav>
+    <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="btn-outline"><span></span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<main id="top" class="w">
+  <section class="hero">
+    <div class="hero-row">
+      <div class="hero-left r">
+        <span class="eyebrow">Premium Products</span>
+        <h1><em>Buy through our discord.</em></h1>
+        <p class="hero-desc">Premium Accounts and Keys for the best reasons.</p>
+        <div class="hero-actions">
+          <a href="#Products" class="btn"><span>View Products</span></a>
+        </div>
+        <div class="hero-tags">
+          <span>Social Media Accounts</span>
+          <span>Video Media Accounts</span>
+          <span>Premium Keys</span>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="stat-card r d1">
+          <span class="label"></span>
+          <div class="value"><em>23 Accounts</em></div>
+          <p class="note">Lower price for the best experience.</p>
+        </div>
+        <div class="mini-row">
+          <div class="mini-stat r d2">
+            <span class="label">Premium Keys</span>
+            <div class="val"></div>
+            <p class="sub">Lifetime and 12 Month Premium Keys</p>
+          </div>
+          <div class="mini-stat r d3">
+            <span class="label">Premium Gaming Accounts</span>
+            <div class="val"></div>
+            <p class="sub">Clean Process, full access, best price.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap r d1">
+    <div class="marquee-track" id="marquee">
+      <span>Spotify Premium</span><span>Netflix 4K</span><span>Disney+</span><span>HBO Max</span><span>NordVPN</span><span>Prime Video</span><span>Paramount+</span><span>All Media Access Bundle</span>
+      <span>Spotify Premium</span><span>Netflix 4K</span><span>Disney+</span><span>HBO Max</span><span>NordVPN</span><span>Prime Video </span><span>Paramount+</span><span>All Media Access Bundle</span>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <section id="Products">
+    <div class="section-top r">
+      <div class="section-header">
+        <span class="section-tag">Products</span>
+      </div>
+    </div>
+
+    <div class="Products-grid">
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d1">
+        <div class="product-icon"><img src="spotify.PNG" alt="Spotify"></div>
+        <span class="product-price">$9.99</span>
+        <h3>Spotify Lifetime Access</h3>
+        <p>Ad free listening, offline downloads, and premium quality audio streaming.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d2">
+        <div class="product-icon"><img src="netflix.png" alt="Netflix"></div>
+        <span class="product-price">$9.99</span>
+        <h3>Netflix Lifetime Access</h3>
+        <p>Premium streaming in Ultra HD with multiple screens and full library access.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d3">
+        <div class="product-icon"><img src="disney.png" alt="Disney+"></div>
+        <span class="product-price">$8.99</span>
+        <h3>Disney+ Lifetime Access</h3>
+        <p>Family and franchise content with full Products access across all devices.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d4">
+        <div class="product-icon"><img src="hbomax.png" alt="HBO Max"></div>
+        <span class="product-price">$8.99</span>
+        <h3>HBO Max lifetime Access</h3>
+        <p> HBO Max Premium Lifetime access Full access to HBO Originals, Max exclusives & Warner Bros. releases</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d5">
+        <div class="product-icon"><img src="nordvpn.png" alt="NordVPN"></div>
+        <span class="product-price">$7.99</span>
+        <h3>NordVPN Lifetime Access</h3>
+        <p>Unlimited access to NordVPN, Access global content from anywhere.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d6">
+        <div class="product-icon"><img src="primevideo.png" alt="Prime Video"></div>
+        <span class="product-price">$7.99</span>
+        <h3>Prime Video Lifetime Access</h3>
+        <p>Streaming, shipping, and benefits bundled into one consistent visual rhythm.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d7">
+        <div class="product-icon"><img src="paramount.png" alt="Paramount+"></div>
+        <span class="product-price">$6.99</span>
+        <h3>Paramount+ USA Lifetime Access</h3>
+        <p>Premium, fully verified Paramount+ streaming accounts for unlimited access to movies, series & exclusive originals.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="product r d8">
+        <div class="product-icon"><img src="bundle.png" alt="All Media Bundle"></div>
+        <span class="product-price">$39.99</span>
+        <h3>All Media Bundle Lifetime Access</h3>
+        <p>Full Media bundle. Every service, one clean price point.</p>
+        <span class="product-link">Order on Discord <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-top r">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Quick answers,<br>Premium Accounts + Keys</h2>
+      </div>
+      <p class="desc" style="max-width:400px;color:var(--text-dim);font-size:.95rem"></p>
+    </div>
+
+    <div class="faq-grid">
+      <article class="faq-item r d1">
+        <h3>How quickly is access delivered?</h3>
+        <p>Pick a product and reach out through Discord. Most orders are fulfilled within minutes during active hours.</p>
+      </article>
+      <article class="faq-item r d2">
+        <h3>What happens if something goes wrong?</h3>
+        <p>Full support and replacement coverage through Discord. Premium experience from purchase through resolution.</p>
+      </article>
+      <article class="faq-item r d3">
+        <h3>How do I order?</h3>
+        <p>Each product card links directly to Discord. No extra steps, just direct purchase.</p>
+      </article>
+      <article class="faq-item r d4">
+        <h3>Does it work well on mobile?</h3>
+        <p>Yes. The layout collapses properly, buttons stretch full width, and every card stacks with comfortable spacing.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta r">
+    <div>
+      <span class="section-tag">Discord</span>
+      <h2>Ready to start?</h2>
+      <p class="desc">Products first, Purchase through Discord. Join the server to browse, order, and get support.</p>
+    </div>
+    <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer" class="btn"><span>Join Discord</span></a>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="w">
+  <div class="footer-bar r">
+    <div class="brand-text">
+      <strong>23 Accounts</strong>
+      <span>Premium Access</span>
+    </div>
+    <nav class="footer-links">
+      <a href="#Products">Products</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer">Discord</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.r').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
