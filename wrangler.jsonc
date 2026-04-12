@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "23",
+  "name": "23accounts",
   "compatibility_date": "2026-04-11",
   "observability": {
     "enabled": true
