@@ -7,7 +7,7 @@
 <meta name="description" content="23 Accounts — Premium streaming accounts and software keys at the best prices. Instant delivery, full coverage, lowest rates.">
 <meta name="theme-color" content="#080808">
 <meta property="og:title" content="23 Accounts | Premium Accounts & Keys">
-<meta property="og:description" content="Premium streaming accounts and software keys — delivered in minutes, priced lower than anywhere else.">
+<meta property="og:description" content="Premium streaming accounts and software keys delivered in minutes.">
 <meta property="og:type" content="website">
 <title>23 Accounts | Premium Accounts & Keys</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
 –mw:1260px;
 –st:env(safe-area-inset-top,0px);
 –sb:env(safe-area-inset-bottom,0px);
-–nav-h:73px; /* used for scroll-margin-top on anchors */
+–nav-h:73px;
 –fd:“Playfair Display”,Georgia,serif;
 –fb:“Figtree”,-apple-system,BlinkMacSystemFont,sans-serif;
 –fm:“Courier Prime”,Courier,monospace;
@@ -53,7 +53,7 @@ body{font-family:var(–fb);background:var(–bg);color:var(–t0);line-height:1
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
-/* ── ATMOSPHERE ─────────────────────────────── */
+/* ATMOSPHERE */
 .atm{position:fixed;pointer-events:none;z-index:0;border-radius:50%}
 .atm-top{top:-52vh;left:50%;transform:translateX(-50%);width:min(1400px,200vw);height:min(1000px,160vw);background:radial-gradient(ellipse at 50% 28%,rgba(140,22,8,.09) 0%,rgba(176,34,20,.048) 30%,rgba(204,51,32,.016) 54%,transparent 70%);animation:breathe 16s ease-in-out infinite alternate}
 @keyframes breathe{0%{opacity:.5;transform:translateX(-50%) scale(1)}100%{opacity:1;transform:translateX(-50%) scale(1.06)}}
@@ -61,7 +61,7 @@ img{display:block;max-width:100%}
 .atm-bl{top:55vh;left:-12vw;width:min(380px,65vw);height:min(380px,65vw);background:radial-gradient(circle,rgba(176,34,20,.03) 0%,transparent 65%);animation:b2 24s ease-in-out infinite alternate-reverse}
 @keyframes b2{0%{opacity:.25}100%{opacity:.85}}
 
-/* grain overlay */
+/* grain */
 body::before{content:””;position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.02;background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 512 512’%3E%3Cfilter id=‘f’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=’.72’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23f)’/%3E%3C/svg%3E”);background-size:200px 200px}
 /* vignette */
 body::after{content:””;position:fixed;inset:0;z-index:8999;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,transparent 44%,rgba(0,0,0,.72) 100%)}
@@ -69,20 +69,18 @@ body::after{content:””;position:fixed;inset:0;z-index:8999;pointer-events:no
 /* grid */
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.009) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.009) 1px,transparent 1px);background-size:88px 88px;mask-image:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.06) 40%,transparent 64%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.06) 40%,transparent 64%)}
 
-/* scan line */
+/* scan */
 .scan{position:fixed;top:0;left:0;right:0;height:1.5px;z-index:8998;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(204,51,32,.15) 35%,rgba(224,74,53,.26) 50%,rgba(204,51,32,.15) 65%,transparent);animation:scan 12s cubic-bezier(.4,0,.6,1) infinite}
 @keyframes scan{0%{top:0;opacity:0}5%{opacity:1}95%{opacity:.28}100%{top:100vh;opacity:0}}
 
 /* cursor glow */
 #cg{position:fixed;pointer-events:none;z-index:8997;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(176,34,20,.036) 0%,transparent 68%);transform:translate(-50%,-50%);will-change:left,top}
 
-/* ── LAYOUT ─────────────────────────────────── */
+/* LAYOUT */
 .w{width:min(var(–mw),calc(100% - 64px));margin:0 auto;position:relative;z-index:1}
-
-/* Anchor offset so sticky nav doesn’t cover section headings */
 #products,#faq{scroll-margin-top:calc(var(–nav-h) + 16px)}
 
-/* ── NAV ────────────────────────────────────── */
+/* NAV */
 .nav{position:sticky;top:0;z-index:200;background:rgba(8,8,8,.8);backdrop-filter:blur(48px) saturate(160%);-webkit-backdrop-filter:blur(48px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.04);padding-top:var(–st);transition:background .3s}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
 
@@ -100,7 +98,7 @@ body::after{content:””;position:fixed;inset:0;z-index:8999;pointer-events:no
 .nav-links a:hover{color:var(–t0)}
 .nav-links a:hover::after{transform:scaleX(1)}
 
-/* ── BUTTONS ────────────────────────────────── */
+/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 24px;min-height:44px;border-radius:999px;border:none;font-family:var(–fb);font-size:.84rem;font-weight:700;letter-spacing:-.01em;cursor:pointer;white-space:nowrap;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .28s var(–ease),box-shadow .28s var(–ease)}
 .btn-red{color:#fff;background:linear-gradient(142deg,var(–r4) 0%,var(–r1) 52%,var(–r0) 100%);box-shadow:0 4px 18px rgba(140,22,8,.44),0 1px 3px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.15)}
 .btn-red::before{content:””;position:absolute;inset:0;background:linear-gradient(142deg,var(–r5) 0%,var(–r4) 44%,var(–r2) 100%);opacity:0;transition:opacity .2s}
@@ -112,7 +110,7 @@ body::after{content:””;position:fixed;inset:0;z-index:8999;pointer-events:no
 .btn-ghost:hover{background:var(–s1);border-color:var(–b1);transform:translateY(-2px)}
 .btn-ghost:active{transform:scale(.96)}
 
-/* ── HERO ───────────────────────────────────── */
+/* HERO */
 .hero{padding:72px 0 52px}
 .hero-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:18px;align-items:stretch}
 
@@ -128,10 +126,8 @@ animation:fadeUp .8s var(–eout) both;
 .hero-main::before{content:””;position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(–br),rgba(204,51,32,.14),transparent);z-index:0}
 .hero-main::after{content:””;position:absolute;right:-70px;bottom:-90px;width:400px;height:400px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,var(–g1) 0%,var(–g0) 46%,transparent 68%);animation:breathe 13s ease-in-out infinite alternate;z-index:0}
 
-/* Decorative ring */
 .hero-ring{position:absolute;inset:0;border-radius:var(–rad);pointer-events:none;z-index:0;border:1px solid transparent;background:linear-gradient(var(–bg),var(–bg)) padding-box,linear-gradient(135deg,rgba(176,34,20,.22),rgba(176,34,20,.04) 42%,transparent 64%) border-box}
 .hero-shine{position:absolute;top:0;left:0;right:0;height:100%;pointer-events:none;z-index:0;background:linear-gradient(155deg,rgba(255,255,255,.018) 0%,transparent 36%);border-radius:inherit}
-
 .hero-content{position:relative;z-index:2}
 
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-family:var(–fm);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-style:italic;color:var(–r5);background:rgba(140,22,8,.1);border:1px solid rgba(176,34,20,.2)}
@@ -147,9 +143,8 @@ animation:fadeUp .8s var(–eout) both;
 .chip{padding:7px 14px;border-radius:999px;font-family:var(–fm);font-size:.67rem;font-style:italic;color:var(–t2);background:var(–s0);border:1px solid var(–b0);transition:color .2s,border-color .2s,background .2s;cursor:default;letter-spacing:.04em}
 .chip:hover{color:var(–t1);border-color:var(–b1);background:var(–s1)}
 
-/* Hero side column */
+/* Hero side */
 .hero-side{display:flex;flex-direction:column;gap:12px}
-
 .side-card{flex:1;position:relative;overflow:hidden;padding:30px 26px;border-radius:var(–rad);border:1px solid var(–b0);background:linear-gradient(148deg,var(–s2),var(–s0));animation:fadeUp .8s var(–eout) .1s both;transition:border-color .28s,transform .28s var(–ease)}
 .side-card:hover{border-color:var(–br);transform:translateY(-3px)}
 .side-card::before{content:””;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(204,51,32,.14),transparent)}
@@ -166,34 +161,34 @@ animation:fadeUp .8s var(–eout) both;
 .mc-val{font-family:var(–fb);font-size:1.05rem;font-weight:700;margin-top:7px;letter-spacing:-.02em;color:var(–t0)}
 .mc-sub{color:var(–t2);font-size:.71rem;margin-top:4px;line-height:1.4}
 
-/* ── TICKER ─────────────────────────────────── */
+/* TICKER */
 .ticker-wrap{margin:48px 0 0;padding:14px 0;border-top:1px solid var(–b0);border-bottom:1px solid var(–b0);overflow:hidden;position:relative;z-index:1}
 .ticker-wrap::before,.ticker-wrap::after{content:””;position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
 .ticker-wrap::before{left:0;background:linear-gradient(90deg,var(–bg),transparent)}
 .ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(–bg),transparent)}
-.ticker-track{display:flex;width:max-content;animation:tick 32s linear infinite}
+.ticker-track{display:flex;align-items:center;width:max-content;animation:tick 32s linear infinite}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .ticker-track:hover{animation-play-state:paused}
-.tick-item{display:inline-flex;align-items:center;padding:0 28px;font-family:var(–fm);font-size:.78rem;font-style:italic;color:var(–t2);letter-spacing:.08em;white-space:nowrap;transition:color .2s}
+.tick-item{display:inline-flex;align-items:center;padding:0 24px;font-family:var(–fm);font-size:.78rem;font-style:italic;color:var(–t2);letter-spacing:.08em;white-space:nowrap;transition:color .2s}
 .tick-item:hover{color:var(–t1)}
-.tick-sep{display:inline-block;width:3px;height:3px;border-radius:50%;flex-shrink:0;background:var(–r2);box-shadow:0 0 5px var(–r2),0 0 10px rgba(176,34,20,.3);vertical-align:middle;margin:0 8px 1px}
+.tick-sep{display:inline-block;width:3px;height:3px;border-radius:50%;background:var(–r2);box-shadow:0 0 5px var(–r2),0 0 10px rgba(176,34,20,.3);vertical-align:middle;flex-shrink:0}
 
-/* ── TRUST BADGES ───────────────────────────── */
-.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:48px 0 0}
+/* TRUST */
+.trust{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:48px 0 0}
 .tc{display:flex;align-items:center;gap:14px;padding:20px 24px;border-radius:18px;border:1px solid var(–b0);background:var(–s0);transition:border-color .24s,transform .24s var(–ease),background .24s}
 .tc:hover{border-color:var(–br);transform:translateY(-3px);background:var(–s1)}
-.tc-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;font-size:.95rem;background:rgba(140,22,8,.1);border:1px solid rgba(176,34,20,.14);line-height:1}
-.tc strong{font-family:var(–fb);font-size:.83rem;font-weight:700;display:block;margin-bottom:3px;letter-spacing:-.01em}
-.tc span{font-size:.72rem;color:var(–t2);line-height:1.4}
+.tc-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;font-size:1.1rem;line-height:1;background:rgba(140,22,8,.1);border:1px solid rgba(176,34,20,.14)}
+.tc-text strong{font-family:var(–fb);font-size:.83rem;font-weight:700;display:block;margin-bottom:3px;letter-spacing:-.01em;color:var(–t0)}
+.tc-text span{display:block;font-size:.72rem;color:var(–t2);line-height:1.4}
 
-/* ── SECTIONS ───────────────────────────────── */
+/* SECTIONS */
 .sec{padding:76px 0}
 .sec-tag{font-family:var(–fm);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-style:italic;color:var(–r3)}
 .sec-h{font-family:var(–fd);font-size:clamp(1.9rem,4.2vw,3.1rem);font-weight:800;line-height:.9;letter-spacing:-.028em;margin-top:10px;font-synthesis:none}
 .sec-h .red{font-style:italic;font-weight:700;background:linear-gradient(128deg,var(–r3),var(–r4) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sec-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px}
 
-/* ── PRODUCT GRID ───────────────────────────── */
+/* PRODUCT GRID */
 .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 
 .pc{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:28px 22px 22px;border-radius:20px;border:1px solid var(–b0);background:linear-gradient(158deg,var(–s2) 0%,var(–s0) 54%,transparent 100%);color:inherit;text-decoration:none;transition:transform .34s var(–ease),border-color .28s,box-shadow .34s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer}
@@ -215,20 +210,20 @@ animation:fadeUp .8s var(–eout) both;
 .pc-cta svg{width:11px;height:11px;flex-shrink:0;transition:transform .26s var(–ease)}
 .pc:hover .pc-cta svg{transform:translateX(3px)}
 
-/* ── FAQ ────────────────────────────────────── */
+/* FAQ */
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .faq{padding:30px;border-radius:20px;border:1px solid var(–b0);background:linear-gradient(155deg,var(–s2),var(–s0));transition:border-color .24s,transform .24s var(–ease),background .24s}
 .faq:hover{border-color:var(–br);transform:translateY(-3px);background:var(–s1)}
-.faq h3{font-family:var(–fb);font-size:.93rem;font-weight:700;letter-spacing:-.012em;line-height:1.34}
+.faq h3{font-family:var(–fb);font-size:.93rem;font-weight:700;letter-spacing:-.012em;line-height:1.34;color:var(–t0)}
 .faq p{color:var(–t1);font-size:.82rem;margin-top:9px;line-height:1.7;font-weight:300;letter-spacing:.004em}
 
-/* ── CTA BANNER ─────────────────────────────── */
+/* CTA */
 .cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:56px 60px;border-radius:var(–rad);border:1px solid var(–br);background:linear-gradient(148deg,rgba(140,22,8,.055) 0%,var(–s1) 42%,transparent 100%);box-shadow:0 28px 64px rgba(0,0,0,.48),0 0 0 1px rgba(176,34,20,.06);margin:14px 0 88px}
 .cta-glow{position:absolute;right:-70px;top:-70px;width:420px;height:420px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,var(–g1) 0%,var(–g0) 46%,transparent 68%);animation:breathe 11s ease-in-out infinite alternate}
 .cta::before{content:””;position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(–br),transparent)}
 .cta .sub{color:var(–t1);margin-top:10px;max-width:460px;font-size:.92rem;font-weight:300;line-height:1.7;letter-spacing:.004em}
 
-/* ── FOOTER ─────────────────────────────────── */
+/* FOOTER */
 footer{padding-bottom:calc(40px + var(–sb))}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 28px;border-radius:18px;border:1px solid var(–b0);background:var(–s0);flex-wrap:wrap}
 .foot-links{display:flex;flex-wrap:wrap;gap:26px}
@@ -236,10 +231,7 @@ footer{padding-bottom:calc(40px + var(–sb))}
 .foot-links a:hover{color:var(–t0)}
 .foot-copy{font-family:var(–fm);font-size:.68rem;color:var(–t2);font-style:italic;letter-spacing:.04em}
 
-/* ── SCROLL REVEAL ──────────────────────────── */
-/* Content is VISIBLE by default.
-JS adds .js-ready to <body>, enabling the hidden→visible transition.
-Guarantees content never disappears without JS. */
+/* SCROLL REVEAL */
 .js-ready .r{opacity:0;transform:translateY(20px);transition:opacity .68s var(–eout),transform .68s var(–eout)}
 .js-ready .r.v{opacity:1;transform:none}
 .js-ready .r.d1{transition-delay:.06s}.js-ready .r.d2{transition-delay:.12s}
@@ -247,7 +239,7 @@ Guarantees content never disappears without JS. */
 .js-ready .r.d5{transition-delay:.30s}.js-ready .r.d6{transition-delay:.36s}
 .js-ready .r.d7{transition-delay:.42s}.js-ready .r.d8{transition-delay:.50s}
 
-/* ── RESPONSIVE ─────────────────────────────── */
+/* RESPONSIVE */
 @media(max-width:1180px){.pg{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:1020px){
 .w{width:min(var(–mw),calc(100% - 48px))}
@@ -402,8 +394,6 @@ Guarantees content never disappears without JS. */
 
   </section>
 
-  <!-- Ticker: two full copies for seamless infinite loop -->
-
   <div class="ticker-wrap" aria-hidden="true" role="presentation">
     <div class="ticker-track">
       <span class="tick-item">Spotify Premium</span><span class="tick-sep"></span>
@@ -414,7 +404,6 @@ Guarantees content never disappears without JS. */
       <span class="tick-item">Prime Video</span><span class="tick-sep"></span>
       <span class="tick-item">Paramount+</span><span class="tick-sep"></span>
       <span class="tick-item">All Media Bundle</span><span class="tick-sep"></span>
-      <!-- duplicate for seamless loop -->
       <span class="tick-item">Spotify Premium</span><span class="tick-sep"></span>
       <span class="tick-item">Netflix 4K</span><span class="tick-sep"></span>
       <span class="tick-item">Disney+</span><span class="tick-sep"></span>
@@ -429,15 +418,15 @@ Guarantees content never disappears without JS. */
   <ul class="trust" aria-label="Store guarantees">
     <li class="tc r d1">
       <div class="tc-icon" aria-hidden="true">⚡</div>
-      <div><strong>Instant Delivery</strong><span>Fulfilled within minutes</span></div>
+      <div class="tc-text"><strong>Instant Delivery</strong><span>Fulfilled within minutes</span></div>
     </li>
     <li class="tc r d2">
       <div class="tc-icon" aria-hidden="true">🛡️</div>
-      <div><strong>Full Coverage</strong><span>Replacements via Discord</span></div>
+      <div class="tc-text"><strong>Full Coverage</strong><span>Replacements via Discord</span></div>
     </li>
     <li class="tc r d3">
       <div class="tc-icon" aria-hidden="true">💸</div>
-      <div><strong>Best Price</strong><span>Lowest rates, always</span></div>
+      <div class="tc-text"><strong>Best Price</strong><span>Lowest rates, always</span></div>
     </li>
   </ul>
 
@@ -451,10 +440,10 @@ Guarantees content never disappears without JS. */
     <div class="pg">
       <a href="https://buy.stripe.com/28E28sfn04BkgYna3J9Ve00" target="_blank" rel="noreferrer noopener" class="pc r d1">
         <div class="pc-shine" aria-hidden="true"></div>
-        <div class="pc-icon"><img src="spotify.PNG" alt="Spotify" loading="lazy" width="28" height="28"></div>
+        <div class="pc-icon"><img src="spotify.png" alt="Spotify" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$9.99 · Lifetime</span>
         <div class="pc-name">Spotify Premium</div>
-        <p class="pc-desc">Ad-free listening, offline downloads, and full audio quality on every device.</p>
+        <p class="pc-desc">Ad free listening, offline downloads, and full audio quality on every device.</p>
         <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
       <a href="https://buy.stripe.com/7sYdRa8YC2tccI7ejZ9Ve01" target="_blank" rel="noreferrer noopener" class="pc r d2">
@@ -470,7 +459,7 @@ Guarantees content never disappears without JS. */
         <div class="pc-icon"><img src="disney.png" alt="Disney+" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$8.99 · Lifetime</span>
         <div class="pc-name">Disney+</div>
-        <p class="pc-desc">Full franchise and family content — Marvel, Star Wars, Pixar, and more.</p>
+        <p class="pc-desc">Full franchise and family content Marvel, Star Wars, Pixar, and more.</p>
         <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
       <a href="https://buy.stripe.com/cNibJ20s67Nw37x5Nt9Ve03" target="_blank" rel="noreferrer noopener" class="pc r d4">
@@ -478,7 +467,7 @@ Guarantees content never disappears without JS. */
         <div class="pc-icon"><img src="hbomax.png" alt="HBO Max" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$8.99 · Lifetime</span>
         <div class="pc-name">HBO Max</div>
-        <p class="pc-desc">HBO Originals, Max exclusives, and the full Warner Bros. film library.</p>
+        <p class="pc-desc">HBO Originals, and HBO Max exclusives.</p>
         <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
       <a href="https://buy.stripe.com/9B614ogr41p8gYnejZ9Ve04" target="_blank" rel="noreferrer noopener" class="pc r d5">
@@ -486,7 +475,7 @@ Guarantees content never disappears without JS. */
         <div class="pc-icon"><img src="nordvpn.png" alt="NordVPN" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$7.99 · Lifetime</span>
         <div class="pc-name">NordVPN</div>
-        <p class="pc-desc">Unlimited VPN access — browse privately and unlock content from anywhere.</p>
+        <p class="pc-desc">Unlimited VPN access browse privately and unlock content from anywhere.</p>
         <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
       <a href="https://buy.stripe.com/eVqaEY4Im8RA4bBejZ9Ve05" target="_blank" rel="noreferrer noopener" class="pc r d6">
@@ -502,7 +491,7 @@ Guarantees content never disappears without JS. */
         <div class="pc-icon"><img src="paramount.png" alt="Paramount+" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$6.99 · Lifetime</span>
         <div class="pc-name">Paramount+ USA</div>
-        <p class="pc-desc">Verified US account — unlimited movies, series, and Paramount+ exclusives.</p>
+        <p class="pc-desc">Verified US account unlimited movies, series, and Paramount+ exclusives.</p>
         <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
       <a href="https://discord.gg/23accounts" target="_blank" rel="noreferrer noopener" class="pc featured r d8">
@@ -511,8 +500,8 @@ Guarantees content never disappears without JS. */
         <div class="pc-icon"><img src="bundle.png" alt="All Media Bundle" loading="lazy" width="28" height="28"></div>
         <span class="pc-price">$39.99 · Lifetime</span>
         <div class="pc-name">All Media Bundle</div>
-        <p class="pc-desc">Everything above — Spotify, Netflix, Disney+, HBO, NordVPN, Prime &amp; Paramount+.</p>
-        <span class="pc-cta">Buy Now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        <p class="pc-desc">Everything above Spotify, Netflix, Disney+, HBO, NordVPN, Prime &amp; Paramount+.</p>
+        <span class="pc-cta">Coming Soon. <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
       </a>
     </div>
   </section>
@@ -531,7 +520,7 @@ Guarantees content never disappears without JS. */
       </article>
       <article class="faq r d2">
         <h3>What if something stops working?</h3>
-        <p>Full replacement coverage is included. Message us on Discord and we'll sort it out — no questions asked.</p>
+        <p>Full replacement coverage is included. Message us on Discord and we'll sort it out no questions asked.</p>
       </article>
       <article class="faq r d3">
         <h3>How does ordering work?</h3>
@@ -539,7 +528,7 @@ Guarantees content never disappears without JS. */
       </article>
       <article class="faq r d4">
         <h3>Does it work on mobile?</h3>
-        <p>Yes — all streaming services and VPN clients are fully supported on iOS and Android across all your devices.</p>
+        <p>Yes all streaming services and VPN clients are fully supported on iOS and Android across all your devices.</p>
       </article>
     </div>
   </section>
@@ -573,47 +562,38 @@ Guarantees content never disappears without JS. */
 
 <script>
 (function(){
-  // Progressive enhancement: enable CSS scroll-reveal
   document.body.classList.add('js-ready');
 
-  // Elements already in the viewport on load get .v immediately
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('v'); obs.unobserve(e.target); }
     });
-  }, {threshold:0.05, rootMargin:'0px 0px -20px 0px'});
+  },{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
 
   document.querySelectorAll('.r').forEach(function(el){ obs.observe(el); });
 
-  // Hard fallback: reveal everything after 1 s no matter what
   setTimeout(function(){
     document.querySelectorAll('.r:not(.v)').forEach(function(el){ el.classList.add('v'); });
-  }, 1000);
+  },1000);
 
-  // Cursor glow — pointer devices only
   var glow = document.getElementById('cg');
   if(glow && window.matchMedia('(pointer:fine)').matches){
-    document.addEventListener('mousemove', function(e){
-      glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
-    }, {passive:true});
+    document.addEventListener('mousemove',function(e){
+      glow.style.left = e.clientX+'px';
+      glow.style.top  = e.clientY+'px';
+    },{passive:true});
   }
 
-  // Deepen nav background on scroll
   var nav = document.querySelector('.nav');
-  window.addEventListener('scroll', function(){
-    nav.style.background = window.scrollY > 40
-      ? 'rgba(8,8,8,.97)'
-      : 'rgba(8,8,8,.80)';
-  }, {passive:true});
+  window.addEventListener('scroll',function(){
+    nav.style.background = window.scrollY > 40 ? 'rgba(8,8,8,.97)' : 'rgba(8,8,8,.80)';
+  },{passive:true});
 
-  // Update --nav-h custom property to match real nav height (handles font-load shifts)
   function syncNavHeight(){
-    var h = nav.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--nav-h', h + 'px');
+    document.documentElement.style.setProperty('--nav-h', nav.getBoundingClientRect().height+'px');
   }
   syncNavHeight();
-  window.addEventListener('resize', syncNavHeight, {passive:true});
+  window.addEventListener('resize', syncNavHeight,{passive:true});
 })();
 </script>
 
